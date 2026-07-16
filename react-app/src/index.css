@@ -1,0 +1,844 @@
+/* ============================================
+   ConectaJoven – styles.css 
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* === VARIABLES === */
+:root {
+  --cj-bg:       #0a0a0f;
+  --cj-card:     #111118;
+  --cj-hover:    #1a1a24;
+  --cj-accent:   #00e5a0;
+  --cj-accent2:  #00b87c;
+  --cj-muted:    #7a7a9a;
+  --cj-border:   #1e1e2e;
+  --cj-white:    #e8e8f0;
+  --cj-font-h:   'Syne', sans-serif;
+  --cj-font-b:   'DM Sans', sans-serif;
+}
+
+/* === BASE === */
+body {
+  background-color: var(--cj-bg);
+  color: var(--cj-white);
+  font-family: var(--cj-font-b);
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--cj-font-h);
+  color: #ffffff;
+}
+
+/* === NAVBAR === */
+.navbar-custom {
+  width:100%;
+    left:0;
+    right:0;
+}
+
+.navbar-brand {
+  font-family: var(--cj-font-h);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #fff !important;
+}
+
+.navbar-brand span {
+  color: var(--cj-accent);
+}
+
+.nav-link {
+  color: var(--cj-muted) !important;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: var(--cj-accent) !important;
+}
+
+/* === HERO === */
+#hero {
+  padding: 140px 0 80px;
+  background: radial-gradient(ellipse at 80% 20%, rgba(0,229,160,0.06) 0%, transparent 60%);
+  border-bottom: 1px solid var(--cj-border);
+}
+
+.hero-title {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.hero-title em {
+  font-style: normal;
+  color: var(--cj-accent);
+}
+
+.hero-desc {
+  color: var(--cj-muted);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* === TAG / BADGE CUSTOM === */
+.cj-tag {
+  display: inline-block;
+  font-size: 0.73rem;
+  font-family: var(--cj-font-h);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cj-accent);
+  border: 1px solid rgba(0,229,160,0.3);
+  background: rgba(0,229,160,0.06);
+  padding: 5px 14px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
+
+/* === STAT CARDS (HERO) === */
+.stat-card {
+  background: var(--cj-hover);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.stat-num {
+  font-family: var(--cj-font-h);
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--cj-accent);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--cj-muted);
+}
+
+.hero-main-card {
+  background: var(--cj-card);
+  border: 1px solid var(--cj-border);
+  border-radius: 20px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-main-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--cj-accent), transparent);
+}
+
+.live-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--cj-hover);
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+
+.live-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--cj-accent);
+  box-shadow: 0 0 10px var(--cj-accent);
+  animation: pulse 2s infinite;
+  flex-shrink: 0;
+}
+
+.live-text {
+  font-size: 0.85rem;
+  color: var(--cj-muted);
+}
+
+.live-text strong {
+  color: #fff;
+  display: block;
+}
+
+/* === SECTIONS === */
+section {
+  padding: 90px 0;
+  border-bottom: 1px solid var(--cj-border);
+}
+
+.section-title {
+  font-size: clamp(1.7rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.section-sub {
+  color: var(--cj-muted);
+  font-size: 1rem;
+  max-width: 500px;
+}
+
+/* === CARDS GENERALES === */
+.cj-card {
+  background: var(--cj-card);
+  border: 1px solid var(--cj-border) !important;
+  border-radius: 14px !important;
+  transition: transform 0.3s, border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.cj-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--cj-accent);
+  transition: width 0.3s;
+}
+
+.cj-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0,229,160,0.3) !important;
+}
+
+.cj-card:hover::after {
+  width: 100%;
+}
+
+.cj-card .card-body {
+  background: transparent;
+}
+
+.cj-card .card-title {
+  font-family: var(--cj-font-h);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.cj-card .card-text {
+  color: var(--cj-muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.service-icon {
+  width: 50px; height: 50px;
+  border-radius: 12px;
+  background: rgba(0,229,160,0.08);
+  border: 1px solid rgba(0,229,160,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 18px;
+}
+
+/* === RECURSOS === */
+.recurso-link {
+  color: var(--cj-accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.recurso-link:hover {
+  opacity: 0.75;
+  text-decoration: underline;
+}
+
+/* === NOSOTROS === */
+.sobre-mini-card {
+  background: var(--cj-card);
+  border: 1px solid var(--cj-border);
+  border-radius: 14px;
+  padding: 24px;
+  height: 100%;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.sobre-mini-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0,229,160,0.3);
+}
+
+.sobre-mini-card h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.sobre-mini-card p {
+  font-size: 0.87rem;
+  color: var(--cj-muted);
+  margin: 0;
+}
+
+/* === FORMULARIO === */
+.form-wrapper {
+  background: var(--cj-card);
+  border: 1px solid var(--cj-border);
+  border-radius: 16px;
+  padding: 40px;
+}
+
+.form-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--cj-muted);
+  margin-bottom: 6px;
+}
+
+.form-control, .form-select {
+  background: var(--cj-hover) !important;
+  border: 1px solid var(--cj-border) !important;
+  color: var(--cj-white) !important;
+  border-radius: 8px !important;
+  padding: 11px 14px !important;
+  font-size: 0.95rem;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--cj-accent) !important;
+  box-shadow: 0 0 0 3px rgba(0,229,160,0.12) !important;
+  outline: none !important;
+}
+
+.form-select option {
+  background: #111118;
+  color: var(--cj-white);
+}
+
+/* === BOTONES === */
+.btn-cj {
+  background: var(--cj-accent);
+  color: var(--cj-bg);
+  font-family: var(--cj-font-h);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 13px 30px;
+  border-radius: 8px;
+  border: none;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  letter-spacing: 0.02em;
+}
+
+.btn-cj:hover {
+  background: var(--cj-accent2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,229,160,0.25);
+  color: var(--cj-bg);
+}
+
+.btn-cj-outline {
+  background: transparent;
+  color: var(--cj-accent);
+  border: 2px solid var(--cj-accent);
+  font-family: var(--cj-font-h);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 11px 28px;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.btn-cj-outline:hover {
+  background: rgba(0,229,160,0.08);
+  transform: translateY(-2px);
+  color: var(--cj-accent);
+}
+
+/* === VALIDACIÓN DE FORMULARIO (componentes React) === */
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border-color: #ff5470 !important;
+  box-shadow: 0 0 0 3px rgba(255, 84, 112, 0.12) !important;
+}
+
+.cj-error-text {
+  display: block;
+  color: #ff5470;
+  font-size: 0.78rem;
+  margin-top: 6px;
+}
+
+.cj-char-count {
+  display: block;
+  text-align: right;
+  color: var(--cj-muted);
+  font-size: 0.75rem;
+  margin-top: 4px;
+}
+
+.cj-alert {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 0.88rem;
+  margin-bottom: 20px;
+}
+
+.cj-alert-success {
+  background: rgba(0, 229, 160, 0.08);
+  border: 1px solid rgba(0, 229, 160, 0.3);
+  color: var(--cj-accent);
+}
+
+.cj-alert-error {
+  background: rgba(255, 84, 112, 0.08);
+  border: 1px solid rgba(255, 84, 112, 0.3);
+  color: #ff5470;
+}
+
+.cj-alert-close {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.cj-alert-close:hover { opacity: 1; }
+
+.btn-cj[disabled] {
+  opacity: 0.75;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.cj-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(10, 10, 15, 0.35);
+  border-top-color: var(--cj-bg);
+  border-radius: 50%;
+  margin-right: 8px;
+  animation: cj-spin 0.7s linear infinite;
+  vertical-align: -2px;
+}
+
+@keyframes cj-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* === NAVBAR: efecto dinámico al hacer scroll === */
+.navbar-custom.scrolled {
+  background: rgba(10, 10, 15, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--cj-border);
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.nav-link.active {
+  color: var(--cj-accent) !important;
+}
+
+/* === ANIMACIÓN DE APARICIÓN AL HACER SCROLL === */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* === INFO CONTACTO === */
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--cj-muted);
+  font-size: 0.9rem;
+  margin-bottom: 14px;
+}
+
+/* === FOOTER === */
+footer {
+  background: var(--cj-card);
+  border-top: 1px solid var(--cj-border);
+  padding: 60px 0 28px;
+}
+
+.footer-logo {
+  font-family: var(--cj-font-h);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.footer-logo span { color: var(--cj-accent); }
+
+.footer-desc {
+  color: var(--cj-muted);
+  font-size: 0.87rem;
+  line-height: 1.7;
+  max-width: 230px;
+}
+
+.footer-col h6 {
+  font-family: var(--cj-font-h);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.footer-col ul { list-style: none; padding: 0; margin: 0; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a {
+  color: var(--cj-muted);
+  font-size: 0.87rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-col ul li a:hover { color: var(--cj-accent); }
+
+.footer-bottom {
+  border-top: 1px solid var(--cj-border);
+  padding-top: 24px;
+  margin-top: 40px;
+}
+
+.footer-bottom p {
+  color: var(--cj-muted);
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.ods-badge {
+  background: rgba(0,229,160,0.1);
+  border: 1px solid rgba(0,229,160,0.2);
+  color: var(--cj-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+
+/* Navbar toggler dark */
+/* === NAVBAR TOGGLER CORREGIDO === */
+.navbar-toggler {
+  border: 1px solid rgba(0, 229, 160, 0.4) !important;
+  border-radius: 8px !important;
+  padding: 6px 10px !important;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.navbar-toggler:hover,
+.navbar-toggler:focus {
+  border-color: var(--cj-accent) !important;
+  background: rgba(0, 229, 160, 0.08) !important;
+  box-shadow: 0 0 0 3px rgba(0, 229, 160, 0.15) !important;
+  outline: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0,229,160,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+  width: 22px;
+  height: 22px;
+}
+
+/* === ANIMACIÓN === */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.85); }
+}
+
+/* === MEDIA QUERIES PROPIAS === */
+
+/* Escritorio (≥ 1025px) */
+@media (min-width: 1025px) {
+  #hero { padding: 140px 0 80px; }
+  .hero-title { font-size: 3.8rem; }
+}
+
+/* Tablet (769px – 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  #hero { padding: 120px 0 70px; }
+  .hero-title { font-size: 2.4rem; }
+}
+
+/* Móvil (≤ 768px) */
+@media (max-width: 768px) {
+  #hero { padding: 110px 0 60px; }
+  .hero-title { font-size: 2rem; }
+  .section-title { font-size: 1.7rem; }
+  .form-wrapper { padding: 24px; }
+  .footer-desc { max-width: 100%; }
+
+  .stat-num {
+    font-size: 1.3rem;
+  }
+
+  .stat-card {
+    padding: 12px 8px;
+  }
+}
+
+/* === TABLA === */
+.cj-table {
+  color: var(--cj-white);
+  border-color: var(--cj-border);
+}
+
+.cj-table thead tr {
+  background: var(--cj-hover);
+  color: var(--cj-accent);
+  font-family: var(--cj-font-h);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-color: var(--cj-border);
+}
+
+.cj-table tbody tr {
+  background: var(--cj-card);
+  border-color: var(--cj-border);
+  font-size: 0.92rem;
+  transition: background 0.3s;
+}
+
+.cj-table tbody tr:hover {
+  background: var(--cj-hover);
+}
+
+.cj-table td, .cj-table th {
+  border-color: var(--cj-border) !important;
+  vertical-align: middle;
+  padding: 14px 16px;
+}
+
+.badge-nivel {
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.badge-nivel.alta {
+  background: rgba(0,229,160,0.12);
+  color: var(--cj-accent);
+  border: 1px solid rgba(0,229,160,0.3);
+}
+
+.badge-nivel.media {
+  background: rgba(255,193,7,0.12);
+  color: #ffc107;
+  border: 1px solid rgba(255,193,7,0.3);
+}
+
+.table-note {
+  font-size: 0.8rem;
+  color: var(--cj-muted);
+  margin-top: 12px;
+}
+
+/* === LISTA SOBRE === */
+.cj-list {
+  list-style: none;
+  padding: 0;
+}
+
+.cj-list li {
+  color: var(--cj-muted);
+  font-size: 0.95rem;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--cj-border);
+}
+
+.cj-list li:last-child {
+  border-bottom: none;
+}
+
+/* === FORM CHECK === */
+.form-check-input {
+  background-color: var(--cj-hover) !important;
+  border-color: var(--cj-border) !important;
+}
+
+.form-check-input:checked {
+  background-color: var(--cj-accent) !important;
+  border-color: var(--cj-accent) !important;
+}
+
+/* ============================================
+   A partir de aquí: estilos específicos de los
+   formularios de registro, login y postulación
+   (RA3), tomados de forms.css
+   ============================================ */
+
+/* ============================================
+   ConectaJoven – forms.css
+   Estilos RA3: validación, modal, archivo, contador
+   Extiende las variables definidas en styles.css
+   ============================================ */
+
+.auth-section {
+  padding: 140px 0 80px;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at 80% 20%, rgba(0,229,160,0.06) 0%, transparent 60%);
+}
+
+/* === Estados de validación === */
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border-color: #ff6b6b !important;
+  box-shadow: 0 0 0 3px rgba(255,107,107,0.12) !important;
+}
+
+.form-control.is-valid,
+.form-select.is-valid {
+  border-color: var(--cj-accent) !important;
+}
+
+.error-msg {
+  display: block;
+  color: #ff6b6b;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+.form-hint {
+  display: block;
+  color: var(--cj-muted);
+  font-size: 0.78rem;
+  margin-top: 4px;
+}
+
+/* === Alertas de formulario === */
+.alert-msg {
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.alert-success {
+  background: rgba(0,229,160,0.1);
+  border: 1px solid var(--cj-accent);
+  color: var(--cj-accent);
+}
+
+.alert-error {
+  background: rgba(255,107,107,0.1);
+  border: 1px solid #ff6b6b;
+  color: #ff6b6b;
+}
+
+/* === Modal accesible (registro exitoso) === */
+.cj-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+}
+
+.cj-modal {
+  background: var(--cj-card);
+  border: 1px solid var(--cj-border);
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 420px;
+  width: 90%;
+}
+
+.cj-modal h3 {
+  color: var(--cj-accent);
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+
+.cj-modal p {
+  color: var(--cj-white);
+  font-size: 0.95rem;
+}
+
+/* === Carga de archivo (Postulación) === */
+.file-upload-box {
+  position: relative;
+  border: 2px dashed var(--cj-border);
+  border-radius: 10px;
+  background: var(--cj-hover);
+  padding: 24px;
+  text-align: center;
+  transition: border-color 0.3s;
+}
+
+.file-upload-box:hover {
+  border-color: var(--cj-accent);
+}
+
+.file-upload-input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.file-upload-label {
+  color: var(--cj-muted);
+  font-size: 0.9rem;
+  margin: 0;
+  pointer-events: none;
+}
+
+.file-upload-filename {
+  font-size: 0.85rem;
+  color: var(--cj-accent);
+  margin-top: 6px;
+}
+
+/* === Botones pequeños (navbar auth) === */
+.btn-cj.btn-sm,
+.btn-cj-outline.btn-sm {
+  padding: 8px 18px;
+  font-size: 0.85rem;
+}
+
+/* === Botón secundario (usado por el componente Button) === */
+.btn-cj-secondary {
+  background: var(--cj-hover);
+  color: var(--cj-white);
+  border: 1px solid var(--cj-border);
+}
+.btn-cj-secondary:hover {
+  background: var(--cj-card);
+  border-color: var(--cj-accent);
+}
+
+/* === Enlace activo de navegación (React Router NavLink) === */
+.nav-link.router-active {
+  color: var(--cj-accent) !important;
+}
